@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- insert your AIML categories here -->
+
+    <!-- BIENVENIDA ************************************-->
+<category>
+    <pattern>HOLA</pattern>
+    <template>Hola, como te llamas? </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    <that>Hola, como te llamas</that>
+    <template>Encantado <set name="name"><star/></set> como puedo ayudarte?</template>
+</category>
+<category>
+    <pattern>NOMBRE</pattern>
+    <template>
+        <random>
+            <li>Me llamo Dr. Bot, como puedo ayudarte?</li>
+            <li>Puedes llamarme Dr. Bot, en que puedo ayudarte?</li>
+            <li>Soy Dr. Bot, mucho gusto! En que puedo ayudarte?</li>
+        </random>
+    </template>
+</category>
+<category>
+    <pattern>como te llamas tu</pattern>
+    <template><srai>NOMBRE</srai></template>
+</category>
+
+ <!-- FIN Bienvenida ************************************-->
+
+<category>
+    <pattern>Hablame de *</pattern>
+    <template>
+        <think><set name="alli"><star/></set></think>
+        Aquí tienes la información sobre
+        <formal> <star/>
+        </formal>
+        .
+        <button>
+            <text>Click aquí</text>
+            <url>https://es.wikipedia.org/wiki/ <star/></url>
+        </button>
+        <button>
+            <text>Click aquí</text>
+            <url>https://www.spain.info/es/que-quieres/ciudades-pueblos/grandes-ciudades/<star/>.html</url>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>Muestrame el mapa de *</pattern>
+    <template>
+        <think>
+            <set name="alli"><star/></set>
+        </think>
+        Aquí tienes el mapa de 
+        <formal> <star/></formal>
+        .
+        <button>
+            <text>Click aquí</text>
+            <url>https://www.google.co.uk/maps?q= <star/></url>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>Que tiempo hace en *</pattern>
+    <template>
+        <think>
+            <set name="alli"><star/></set>
+        </think>
+        Espero que haga un buen dia en  
+         <formal> <star/></formal>
+        .
+        <button>
+            <text>Click aqui para ver el tiempo</text>
+            <url>https://www.eltiempo.es/<star/>.html
+               
+            </url>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>hablame de alli </pattern>
+    <template>
+        <condition name="alli">
+            <li value="*"><srai>Hablame de <get name="alli"/></srai></li>
+            <li>Que te hable sobre que?</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>Muestra el mapa de alli</pattern>
+    <template>
+        <condition name="alli">
+            <li value="*"><srai>Muestra el mapa de <get name="alli"/></srai></li>
+            <li>Un mapa de donde?</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>Que tiempo hace alli</pattern>
+    <template>
+        <condition name="alli">
+            <li value="*"><srai>Que tiempo hace en <get name="alli"/></srai></li>
+            <li>El tiempo de donde?</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>Te hablare sobre que</that>
+    <template>
+        <srai>
+            Hablame de <star/>
+        </srai>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>un mapa de donde</that>
+    <template>
+        <srai>
+            muestra el mapa de alli<star/>
+        </srai>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>el tiempo de donde</that>
+    <template>
+        <srai>
+            que tiempo hace alli<star/>
+        </srai>
+    </template>
+</category>
+
+<!-- METRO -->
+
+<category>
+    <pattern>Hay metro en *</pattern>
+    <template>No, en <star/> no hay metro </template>
+</category>
+
+<category>
+    <pattern>Hay metro en <set>mapas</set> ^</pattern>
+    <template>Si. En <star/> hay metro, te paso un enlace:
+        <button>
+            <text>Click aqui para mas info</text>
+            <url>http://mapa-metro.com/es/espana/<star/>/<star/>-metro-mapa.htm
+               
+            </url>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>Gracias</pattern>
+    <template>
+    Gracias a ti <get name="name"/>,
+    que disfrutes mucho en <get name="alli"/>!
+    </template>
+</category>
+
+
+</aiml>
